@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const multer = require("multer");
 const { createClient } = require("@supabase/supabase-js");
+const axios = require("axios");
 
 const app = express();
 app.use(express.json());
@@ -157,10 +158,10 @@ app.post(
 
     try {
       // Upload the file to Supabase Storage
-      const fileName = `${patientId}-${uploadDate}.png`;
+      const fileName = `${patientId}-${uploadDate}.jpg`;
       const { data, error } = await supabase.storage
         .from("shape-files")
-        .upload(fileName, file.buffer, { contentType: "image/png" });
+        .upload(fileName, file.buffer, { contentType: "image/jpg" });
 
       if (error) {
         throw error;
@@ -193,9 +194,75 @@ app.post(
       res.json({ success: true, fileUrl: publicURL });
     } catch (err) {
       res.status(500).json({ error: err.message });
+    } finally {
+      var fileName = `${patientId}-${uploadDate}.jpg`;
+
+      try {
+        console.log("Filename", fileName);
+        console.log("patientID", patientId);
+
+        const url = `http://52.87.183.12:8000/analyze_shape/?image_path=${fileName}&patient_id=${patientId}`;
+
+        const response = await axios.post(url, null, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        console.log("Analyze Shape API Response:", response.data);
+        return response.data;
+      } catch (error) {
+        console.error(
+          "Error:",
+          error.response ? error.response.data : error.message
+        );
+      }
     }
   }
 );
+
+app.get("/api/fetch-pdf-files", async (req, res) => {
+  const { patientId } = req.query; // Get patientId from query params
+
+  if (!patientId) {
+    return res.status(400).json({ error: "Patient ID is required" });
+  }
+
+  try {
+    // Query files in the "moca-test-files" bucket for the patientId
+    const { data, error } = await supabase.storage
+      .from("moca-test-files")
+      .list("", {
+        search: `${patientId}-`, // Search for files that start with the patientId
+        limit: 100, // Limit the number of files returned
+        offset: 0,
+      });
+
+    if (error) {
+      throw error;
+    }
+
+    // Get the file URLs for each PDF file
+    const pdfFilesWithUrls = await Promise.all(
+      data.map(async (file) => {
+        const { publicURL, error } = await supabase.storage
+          .from("moca-test-files")
+          .getPublicUrl(file.name);
+
+        if (error) {
+          throw error;
+        }
+
+        return { fileName: file.name, fileUrl: publicURL };
+      })
+    );
+
+    res.json(pdfFilesWithUrls); // Send the file URLs as the response
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Error fetching PDF files from Supabase" });
+  }
+});
 
 // Start Server
 const PORT = process.env.PORT || 5000;
