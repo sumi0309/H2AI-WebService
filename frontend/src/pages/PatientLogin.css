@@ -1,0 +1,115 @@
+/* Main Container */
+.patient-login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #6b9ce8,
+    #f2f9ff
+  ); /* Same background as landing page */
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  margin: 0;
+}
+
+/* Form Container */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  max-width: 90%;
+  text-align: center;
+  align-items: center;
+}
+
+/* Heading */
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #2a3a7a;
+}
+
+/* Label */
+label {
+  font-size: 1.2rem;
+  color: #4c4c4c;
+  margin-bottom: 15px; /* Increased space between label and input */
+  font-weight: 600;
+}
+
+/* Input Fields */
+input {
+  padding: 12px;
+  font-size: 1.1rem;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  width: 100%; /* Ensure input takes full width of the form */
+}
+
+input:focus {
+  border-color: #007bff;
+}
+
+/* Submit Button */
+.submit-btn {
+  font-size: 1.2rem;
+  padding: 12px 30px;
+  width: 100%;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 123, 255, 0.5);
+}
+
+.submit-btn:disabled {
+  background-color: #d3d3d3;
+  cursor: not-allowed;
+}
+
+/* Error Message */
+.error {
+  color: red;
+  font-size: 1rem;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .patient-login-container {
+    padding: 20px;
+  }
+
+  .login-form {
+    width: 90%;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  .submit-btn {
+    font-size: 1.1rem;
+  }
+}

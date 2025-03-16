@@ -1,0 +1,149 @@
+/* Speech Monitoring Component Styles */
+
+/* Main Container */
+.speech-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #6b9ce8,
+    #f2f9ff
+  ); /* Soft blue background */
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0 20px; /* Added padding for responsiveness */
+}
+
+/* Heading */
+.speech-container h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #2a3a7a;
+}
+
+/* Patient ID */
+.speech-container p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+/* Date Picker */
+.speech-container input[type="date"] {
+  padding: 12px;
+  font-size: 1.1rem;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 350px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.speech-container input[type="date"]:focus {
+  border-color: #007bff;
+}
+
+/* Recorder Section */
+.speech-container .recorder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.speech-container button {
+  font-size: 1.2rem;
+  padding: 12px 30px;
+  margin: 10px;
+  border: none;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.speech-container button:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 123, 255, 0.5);
+}
+
+.speech-container button:disabled {
+  background-color: #d3d3d3;
+  cursor: not-allowed;
+}
+
+/* Message Display */
+.speech-container p {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+/* Upload Button */
+.speech-container button[type="submit"] {
+  font-size: 1.2rem;
+  padding: 12px 30px;
+  width: 100%;
+  max-width: 350px;
+  text-align: center;
+  background-color: #007bff;
+  color: white;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.speech-container button[type="submit"]:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 123, 255, 0.5);
+}
+
+.speech-container button[type="submit"]:disabled {
+  background-color: #d3d3d3;
+  cursor: not-allowed;
+}
+
+/* Message Display */
+.speech-container .message {
+  font-size: 1.1rem;
+  margin-top: 15px;
+  color: #e74c3c; /* Error Message Color */
+}
+
+.speech-container .message.success {
+  color: #2ecc71; /* Success Message Color */
+}
+
+.speech-container .message.error {
+  color: #e74c3c;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .speech-container {
+    padding: 20px;
+  }
+
+  .speech-container h1 {
+    font-size: 2rem;
+  }
+
+  .speech-container button {
+    font-size: 1.1rem;
+  }
+
+  .speech-container input[type="date"] {
+    max-width: 90%;
+  }
+}

@@ -7,17 +7,17 @@ frontend/node_modules/
 # Ignore built files
 backend/dist/
 backend/build/
-frontend/h2ai/build/
+frontend/build/
 
 # Ignore environment files
 backend/.env
-frontend/h2ai/.env
+frontend/.env
 
 # Ignore logs
 backend/logs/
 backend/debug.log
 backend/error.log
-frontend/h2ai/logs/
+frontend/logs/
 
 # Ignore system files
 .DS_Store
@@ -26,7 +26,7 @@ Thumbs.db
 # Ignore dependency locks (optional if you want others to install fresh dependencies)
 backend/package-lock.json
 frontend/package-lock.json
-frontend/h2ai/package-lock.json
+frontend/package-lock.json
 
 # Ignore supabase credentials (if applicable)
 backend/supabaseClient.js
