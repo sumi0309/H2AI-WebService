@@ -44,12 +44,12 @@ const PatientOptions = () => {
               onClick={handleHandwritingAnalysisClick}
               className="option-btn"
             >
-              ✍️ Handwriting Analysis
+              ✍️ Shape Analysis
             </button>
           </li>
           <li>
             <button onClick={handleMotorSkillsTestClick} className="option-btn">
-              🖐️ Motor Skill Tests
+              🖐️ Cognitive Strength
             </button>
           </li>
         </ul>

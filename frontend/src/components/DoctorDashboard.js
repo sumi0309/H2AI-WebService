@@ -77,7 +77,7 @@ const DoctorDashboard = () => {
       )}
 
       {/* Handwriting Analysis Data */}
-      <h3>✍ Handwriting Analysis</h3>
+      <h3>✍ Shape Drawing Analysis</h3>
       {loading ? (
         <p className="loading-message">Loading handwriting analysis...</p>
       ) : error ? (
@@ -110,8 +110,19 @@ const DoctorDashboard = () => {
       )}
 
       {/* Fetch Analysis Data */}
-      <h3>📊 Analysis Results</h3>
-      {/* Additional code for displaying other analysis data */}
+      <h3>📊 Moca Test Reports</h3>
+      {/* Add Button to View MOCA Test Report */}
+      <button
+        className="view-report-button"
+        onClick={() =>
+          window.open(
+            "https://nnlhwoslxwdcxzctfokm.supabase.co/storage/v1/object/public/moca-test-files//j123-2025-03-15.pdf",
+            "_blank"
+          )
+        }
+      >
+        View MOCA Test Report
+      </button>
     </div>
   );
 };
