@@ -40,3 +40,85 @@
   color: red;
   font-weight: bold;
 }
+
+.analysis-list-container {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.analysis-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.analysis-item {
+  background-color: white;
+  border-left: 4px solid #4a90e2;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  padding: 15px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.analysis-item:hover {
+  transform: translateY(-2px);
+}
+
+.analysis-header h5 {
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+  color: #2c3e50;
+}
+
+.analysis-content .description {
+  margin: 0 0 12px 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.analysis-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.metric {
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.normal-range {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+
+.patient-value {
+  background-color: #fff8e1;
+  color: #f57f17;
+}
+
+.pd-description {
+  margin: 5px 0 0 0;
+  padding: 8px 12px;
+  background-color: #f1f8e9;
+  color: #558b2f;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+/* Weekly Analysis Header */
+h4 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: #34495e;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 5px;
+  display: inline-block;
+}
