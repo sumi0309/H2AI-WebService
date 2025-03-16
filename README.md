@@ -1,4 +1,4 @@
-# H2AI-WebService
+# NeuroTrack.io
 
 ## Overview
 H2AI-WebService is a web-based application designed to facilitate AI-driven analysis and processing. This project leverages advanced AI/ML models for speech and image recognition, integrating a scalable and secure architecture for efficient deployment.
