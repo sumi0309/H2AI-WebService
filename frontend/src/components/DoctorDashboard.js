@@ -40,38 +40,41 @@ const DoctorDashboard = () => {
   return (
     <div className="doctor-dashboard-container">
       <h2 className="doctor-dashboard-header">Doctor's Dashboard</h2>
-
-      {/* Speech Monitoring Data (unchanged) */}
       <h3>🗣 Speech Monitoring Analysis</h3>
       {patientData.length > 0 ? (
-        <table className="patient-data">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Patient ID</th>
-              <th>Timestamp</th>
-              <th>Result</th>
-              <th>Result Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            {patientData.map((record, index) => (
-              <tr key={index}>
-                <td>{record.id}</td>
-                <td>{record.patient_id}</td>
-                <td>{new Date(record.timestamp).toLocaleString()}</td>
-                <td>
-                  <pre>{JSON.stringify(record.result, null, 2)}</pre>
-                </td>
-                <td>
-                  <pre>
-                    {JSON.stringify(record.result_description, null, 2)}
-                  </pre>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <div className="speech-monitoring-analysis">
+          <h4>Weekly Analysis</h4>
+          {patientData[0]?.result_description && (
+            <div className="analysis-list-container">
+              <ul className="analysis-list">
+                {patientData[0].result_description.map((item, index) => (
+                  <li key={index} className="analysis-item">
+                    <div className="analysis-header">
+                      <h5>
+                        {item.name} ({item.full_form})
+                      </h5>
+                    </div>
+                    <div className="analysis-content">
+                      <p className="description">{item.description}</p>
+                      <div className="analysis-metrics">
+                        <span className="metric normal-range">
+                          <strong>Normal Range:</strong> {item.normal_range}
+                        </span>
+                        <span className="metric patient-value">
+                          <strong>Patient Value:</strong> {item.patient_value}
+                        </span>
+                      </div>
+                      <p className="pd-description">
+                        <strong>In Parkinson's Patients:</strong>{" "}
+                        {item.parkinson_patient_description}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
       ) : (
         <p className="no-data-message">No speech monitoring data found.</p>
       )}
