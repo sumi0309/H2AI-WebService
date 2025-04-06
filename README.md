@@ -1,7 +1,7 @@
 # NeuroTrack.io
 
 ## Overview
-H2AI-WebService is a web-based application designed to facilitate AI-driven analysis and processing. This project leverages advanced AI/ML models for speech and image recognition, integrating a scalable and secure architecture for efficient deployment.
+This project focuses on leveraging artificial intelligence (AI) to track the progression of Parkinson's disease (PD) in patients over time. By utilizing advanced AI models, the system aims to objectively measure changes in motor abilities and other symptoms associated with PD, enabling clinicians to assess disease severity and progression more accurately. The application is designed to provide insights into subtle variations in patients' abilities, which are often challenging to detect through traditional methods. The ultimate goal is to improve patient care, optimize treatment plans, and reduce the burden on healthcare providers by enabling remote and automated assessments.
 
 ## Features
 - AI/ML-powered analysis using PRAT algorithms and SpeechBrain  
